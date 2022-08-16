@@ -1,5 +1,5 @@
 import math
-
+#สร้าง class Spherical โดยต้อง   มี function [changeR , findVolume , findArea]   มี ตัวแปร radius
 class Spherical:
 
     def __init__(self,r):
