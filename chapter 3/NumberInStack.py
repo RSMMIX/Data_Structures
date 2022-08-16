@@ -25,4 +25,24 @@ def ManageStack(stack):
             print("Pop = "+str(temp))
 
     def D(lst,temp):
-        pass
+        nb = 0
+        if len(lst) == 0:
+            print(-1)
+        else:
+            for i in lst:
+                if i == temp:
+                    nb += 1 #nb = number
+            for i in range(nb):
+                lst.remove(temp)
+                print("Delete = "+str(temp))
+
+    def LD(lst,temp):
+        telst = []
+        if len(lst) == 0:
+            print(-1)
+        else:
+            for i in range(len(lst)-1,-1,-1):
+                if int(lst[i]) >= int(temp):
+                    telst.append(lst[i])
+                else:
+                    print("Delete ="+str(lst[i])+" Because "+str(lst[i])+" is more than "+str(temp))
