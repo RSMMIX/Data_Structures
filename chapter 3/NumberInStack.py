@@ -24,5 +24,5 @@ def ManageStack(stack):
             lst.pop()
             print("Pop = "+str(temp))
 
-    def D(lst):
-        
+    def D(lst,temp):
+        pass
