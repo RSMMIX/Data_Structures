@@ -50,13 +50,13 @@ def ManageStack(i):
         else:
             value = int(i[1])
             temp = Stack()
-            while not s.isEmpty():
-                temp.push(s.pop())
-                if temp.peek() == value:
-                    wtd = temp.pop()
-                    print(f'Delete = {wtd}')
-            while not temp.isEmpty():
-                s.push(temp.pop())
+        while not s.isEmpty():
+            temp.push(s.pop())
+            if temp.peek() == value:
+                wtd = temp.pop()
+                print(f'Delete = {wtd}')
+        while not temp.isEmpty():
+            s.push(temp.pop())
     
     elif i[0] == 'LD':
         if s.isEmpty():
@@ -64,13 +64,13 @@ def ManageStack(i):
         else:
             value = int(i[1])
             temp = Stack()
-            while not s.isEmpty():
-                temp.push(s.pop())
-                if temp.peek() < value:
-                    wtd = temp.pop()
-                    print(f'Delete = {wtd} Because {wtd} is less than {value}')
-            while not temp.isEmpty():
-                s.push(temp.pop())
+        while not s.isEmpty():
+            temp.push(s.pop())
+            if temp.peek() < value:
+                wtd = temp.pop()
+                print(f'Delete = {wtd} Because {wtd} is less than {value}')
+        while not temp.isEmpty():
+            s.push(temp.pop())
 
     elif i[0] == 'MD':
         if s.isEmpty():
@@ -78,13 +78,13 @@ def ManageStack(i):
         else:
             value = int(i[1])
             temp = Stack()
-            while not s.isEmpty():
-                temp.push(s.pop())
-                if temp.peek() > value:
-                    wtd = temp.pop()
-                    print(f'Delete = {wtd} Because {wtd} is more than {value}')
-            while not temp.isEmpty():
-                s.push(temp.pop())
+        while not s.isEmpty():
+            temp.push(s.pop())
+            if temp.peek() > value:
+                wtd = temp.pop()
+                print(f'Delete = {wtd} Because {wtd} is more than {value}')
+        while not temp.isEmpty():
+            s.push(temp.pop())
 
 
 s = Stack()
@@ -93,4 +93,4 @@ for i in n:
     i = i.split()
     ManageStack(i)
 
-print(f'Value in Stack = {s.items}')
+

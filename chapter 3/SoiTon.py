@@ -8,40 +8,55 @@
 
 '''
 
+
 class Stack:
-    def __init__(self,lst = None):
-        if lst == None:
+    def __init__(self, list=None):
+        if list == None:
             self.items = []
         else:
-            self.items = lst
+            self.items = list
 
-    def push(self,i):
+    def push(self, i):
         self.items.append(i)
-           
+
     def pop(self):
         return self.items.pop(len(self.items)-1)
 
     def isEmpty(self):
         return self.items == []
-        
+
     def size(self):
         return (len(self.items))
 
+
 print('******** Parking Lot ********')
 
-m,s,o,n = input("Enter max of car,car in soi,operation : ").split()
-stack = list(s.split(','))
-m,n = int(m),int(n)
+m, s, o, n = input("Enter max of car,car in soi,operation : ").split()
+s = list(s.split(','))
+m, n = int(m), int(n)
 
 if o == 'arrive':
-    if len(stack) < m :
-        if n in stack:
-            print(f"car {n} already in soi")
-
+    if len(s) < m:
+        if str(n) in s:
+            print("car "+str(n)+" already in soi")
         else:
-            print(f'car {n} arrive! : Add Car {n}')
-            stack.append(n)
-    
+            print("car "+str(n)+" arrive! : Add Car "+str(n))
+            s.append(n)
     else:
-        print(f'car {n} cannot arrive : Soi Full ')
+        print("car "+str(n)+" cannot arrive : Soi Full ")
+else:
+    if '0' in s:
+        print("car "+str(n)+" cannot depart : Soi Empty")
+    elif str(n) not in s:
+        print("car "+str(n)+" cannot depart : Dont Have Car "+str(n))
+    else:
+        print("car "+str(n)+" depart ! : Car "+str(n)+" was remove")
+        s.remove(str(n))
 
+
+temp = []
+for i in s:
+    temp.append(int(i))
+    if int(i) == 0:
+        temp.remove(0)
+print(temp)
