@@ -9,26 +9,20 @@ D                 ให้ทำการ Dequeue ตัวที่อยู�
 ***ถ้าหากไม่มีข้อมูลใน Queue แล้วให้แสดงคำว่า  Empty
 '''
 class Queue:
-    def __init__(self,list = None):
-        if list == None:
-            self.items = []
-        else:
-            self.items = list
+    def __init__(self):
+        self.items = []
 
-    def push(self,i):
+    def push(self, i):
         self.items.append(i)
-           
+
     def pop(self):
-        return self.items.pop()
+        return self.items.pop(0)
 
     def isEmpty(self):
-        return self.items == []
-        
+        return len(self.items) == 0
+
     def size(self):
-        return (len(self.items))
-        
-    def returnList(self):
-        return self.items
+        return len(self.items)
 
-
-n = input('Enter Input : ').split(',')
+    def front(self) :
+            return self.items[0]  
