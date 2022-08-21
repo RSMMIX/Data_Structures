@@ -9,9 +9,15 @@ D  ->  เป็นการนำพนักงานคนหน้าสุ�
 
 อธิบาย TestCase_1 :  จะมีพนักงาน 4 คน คือแผนก 1 id=101,102 และแผนก 2 id=201,202  ต่อมาจะแสดงผล Empty เพราะยังไม่มีพนักงานในแถว  และนำพนักงาน id=101และ201 เข้าแถวตามลำดับ ต่อมาจะแสดงผลเป็น 101 เพราะพนักงาน 101 อยู่คนแรกและแสดงผล 201 เพราะอยู่คนแรก
 """
+
+
+
 class Queue:
-    def __init__(self):
-        self.items = []
+    def __init__(self,ls = None):
+        if ls == None:
+            self.items = []
+        else:
+            self.items = ls
 
     def enQueue(self, i):
         self.items.append(i)
@@ -24,19 +30,37 @@ class Queue:
 
     def size(self):
         return len(self.items)
-    
-    def clean(self):
-        self.items = []
-    
-    def lastQ(self):
-        if self.isEmpty():
-            return []
+
+    def front(self) :
+            return self.items[0]  
+
+
+info, action = input("Enter Input : ").split("/")
+
+info = dict([i.split()[::-1] for i in info.split(',')])
+lq = []
+
+def search(id):
+    for i in range(len(lq)):
+        if info[lq[i].front()] == info[id]:
+            return i
+    return -1
+
+for i in action.split(','):
+    i = i.split()
+    if i[0] == 'E':
+        id = i[1]
+        index = search(id)
+        if index != -1 :
+            lq[index].enQueue(id)
         else:
-            return self.items[-1]
+            lq.append(Queue([id]))
 
-    def Num0(self):
-        return self.items[0]
 
-n = input("Enter Input : ").split("/")
-listt01 = n[0].split(",")
-listt02 = n[1].split(",")
+    elif i[0] == 'D':
+        if not lq:
+            print('Empty')
+        else:
+            print(lq[0].deQueue())
+            if lq[0].isEmpty():
+                lq.pop(0)
