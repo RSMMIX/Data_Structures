@@ -16,15 +16,31 @@
 หมายเหตุ ฟังก์ชันมี parameter ได้ไม่เกิน 2 ตัว 
 
 """
-def asteroid_collision(asts):
-    
-
-
-    
-
-
-
-
+def asteroid_collision(asts,index):
+    if len(asts) == 0:
+        return asts
+    if index == 0:
+        return asts
+    if index-1 >= 0:
+        #print("DATA: ",asts[index])
+        #print("PREV DATA: ",asts[index-1])
+        if asts[index] < 0 and asts[index - 1] > 0:
+            if -asts[index] > asts[index - 1]:
+                asts.pop(index - 1)
+            elif -asts[index] == asts[index - 1]:
+                asts.pop(index)
+                asts.pop(index - 1)
+            elif -asts[index] < asts[index - 1]:
+                asts.pop(index)
+            asteroid_collision(asts, len(asts)-1)
+        else:
+            asteroid_collision(asts, index - 1)
+    #print("INDEX-1",index-1)
+ 
+ 
+    return asts
+ 
+ 
 x = input("Enter Input : ").split(",")
 x = list(map(int,x))
-print(asteroid_collision(x))
+print((asteroid_collision(x,len(x)-1)))
