@@ -3,6 +3,8 @@
 
 เขียน Recursive รับค่า a,b โดยที่ a,b เป็นจำนวนเต็มบวกหรือศูนย์ และค่าหา ab  
 '''
+
+
 def power(a, b):
     if b == 0:
         return 1
@@ -13,3 +15,5 @@ n = input('Enter Input a b : ').split()
 x = int(n[0])
 y = int(n[1])
 print(power(x,y))
+
+

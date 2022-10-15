@@ -20,3 +20,4 @@ def length(txt):
 
 n = input("Enter Input : ")
 print(((str(length(n)))),sep="")
+
