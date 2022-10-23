@@ -100,13 +100,15 @@ def search(node, data, code):
         return s
     
 q = Queue()
-huffman = HuffmanTree()            
+huffman = HuffmanTree()           
+
 inp = list(input('Enter Input : '))
 setOfChar = set(inp)
 for data in setOfChar:
     huffman.root = huffman.insert(data,inp.count(data))
 sortedData = huffman.descendingInorder(huffman.root)
 q.enQueue(sortedData.pop())
+
 while len(sortedData) != 0 or len(q) != 1:
     if len(q) <= 1:
         temp = sortedData.pop()
@@ -119,6 +121,7 @@ while len(sortedData) != 0 or len(q) != 1:
         else:
             temp = sortedData.pop()
             q.enQueue(temp)
+            
 root = q.deQueue()
 codeword = {}
 for i in codeList(root,""):
